@@ -3,7 +3,7 @@ from werkzeug.utils import secure_filename
 from PIL import Image
 import boto3
 import os
-
+#teste
 # Set up the Flask app
 app = Flask(__name__)
 
