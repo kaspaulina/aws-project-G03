@@ -1,0 +1,50 @@
+{
+    "family": "cats-and-dogs-task-v2",
+    "containerDefinitions": [
+        {
+            "name": "cats-and-dogs",
+            "image": "014573712316.dkr.ecr.us-east-1.amazonaws.com/project/cats-and-dogs-v2",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "name": "cats-and-dogs-80-tcp",
+                    "containerPort": 80,
+                    "hostPort": 80,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "environment": [],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "ulimits": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/cats-and-dogs-task-v2",
+                    "mode": "non-blocking",
+                    "awslogs-create-group": "true",
+                    "max-buffer-size": "25m",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": []
+            },
+            "systemControls": []
+        }
+    ],
+    "taskRoleArn": "arn:aws:iam::014573712316:role/LabRole",
+    "executionRoleArn": "arn:aws:iam::014573712316:role/LabRole",
+    "networkMode": "awsvpc",
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "512",
+    "memory": "1024",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    }
+}
