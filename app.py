@@ -26,9 +26,9 @@ rekognition = boto3.client('rekognition',
                         region_name='us-east-1')
 
 # AWS S3 bucket configuration
-BUCKET_NAME = os.environ.get("BUCKET_NAME")
+BUCKET_NAME = "cats-and-dogs-v2"
 # AWS Rekognition model configuration
-MODEL_ARN = os.environ.get("MODEL_ARN")
+MODEL_ARN = "arn:aws:rekognition:us-east-1:014573712316:project/cats-and-dogs-v2/version/cats-and-dogs-v2.2024-10-09T21.11.38/1728519096459"
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.')[-1].lower() in app.config['UPLOAD_EXTENSIONS']

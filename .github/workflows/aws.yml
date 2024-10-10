@@ -31,6 +31,9 @@ on:
     branches: [ main ]
 
 env:
+  ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
+  SECRET_KEY: ${{ secrets.SECRET_KEY }}
+  SESSION_TOKEN: ${{secrets.SESSION_TOKEN}}
   ECR_REPOSITORY: ${{ vars.ECR_REPOSITORY }}           # set this to your Amazon ECR repository name
   ECS_SERVICE: ${{ vars.ECS_SERVICE }}                   # set this to your Amazon ECS service name
   ECS_CLUSTER: ${{ vars.ECS_CLUSTER }}               # set this to your Amazon ECS cluster name
@@ -56,10 +59,10 @@ jobs:
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
-        aws-access-key-id: ${{ secrets.ACCESS_KEY }}
-        aws-secret-access-key: ${{ secrets.SECRET_KEY }}
+        aws-access-key-id: ACCESS_KEY
+        aws-secret-access-key: SECRET_KEY
         aws-region: "us-east-1"
-        aws-session-token: ${{secrets.SESSION_TOKEN}}
+        aws-session-token: SESSION_TOKEN
 
     - name: Login to Amazon ECR
       id: login-ecr
